@@ -1,8 +1,10 @@
 export default function authHeader() {
-    const auth = JSON.parse(localStorage.getItem('accessToken'));
-    
-    if (auth && auth.accessToken) {
-        return { 'x-access-token': auth.accessToken };
+    const Tokens = JSON.parse(localStorage.getItem('Tokens'));
+    if (Tokens) {
+        return {     
+            "refresh": Tokens.refreshToken,
+            'x-access-token': Tokens.accessToken 
+        };
     } else {
         return {};
     }

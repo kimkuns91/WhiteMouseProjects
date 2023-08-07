@@ -5,6 +5,7 @@ const PostEditor = ()=>{
     useEffect(()=>{
         getAuth()
             .then(response => console.log(response))
+            .catch(err => alert(err.response.data.message))
     },[])
     return(
         <div>
