@@ -5,7 +5,7 @@ const { makeToken, refreshVerify, verify } = require("../utils/token.utils");
 
 exports.verifyToken = async (req, res, next) => {
     const accessToken = req.headers["x-access-token"];
-
+    console.log("verifyToken Process")
     if (!accessToken) {
         return res.status(401).json({ message: 'Access token missing' });
     }

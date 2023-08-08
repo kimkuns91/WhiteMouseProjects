@@ -1,5 +1,27 @@
 .Header .Wrap {
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.Header .NavLeft {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Header .Logo {
+    width: 30px;
+    margin-right: 200px;
+}
+.Header .NavMenu {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 30px;
+}
+
+.Header .NavRight {
+    display: flex;
+}
+.Header .LogoutBtn {
+    cursor: pointer;
 }

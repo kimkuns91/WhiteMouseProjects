@@ -1,3 +1,4 @@
+import './Reset.css';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout/Layout';
@@ -10,60 +11,70 @@ import Projects from './pages/Projects/Projects';
 import Register from './pages/Login/Register';
 import Login from './pages/Login/Login';
 import { useDispatch, useSelector } from 'react-redux';
-import { createContext, useEffect, useState } from 'react';
-import { getAuth, getUser } from './services/authService';
+import { useEffect } from 'react';
+import { getUser } from './services/authService';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { logout } from './redux/user';
-
-export const AppContext = createContext();
+import { login, logout } from './redux/userSlice';
+import { ThemeProvider } from 'styled-components';
+import ThemeButton from './components/ThemeButton/ThemeButton';
+import GlobalStyle from './styles/GlobalStyle.js';
+import { lightTheme, darkTheme } from './styles/theme';
 
 function App() {
-  const [ userInfo, setUserInfo ] = useState({})
-  const autoLogin = useSelector((state) => state.user.value.autoLogin)
+  const userInfo = useSelector((state) => state.user.value)
+  const themeMode = useSelector((state) => state.theme.value.darkMode)
   const dispatch = useDispatch()
-
   useEffect(()=>{
-    const User = JSON.parse(sessionStorage.getItem('User'));
-    if(!User){
-      if(autoLogin){
-        return getUser()
-          .then(response => setUserInfo({
-            email : response.email,
-            username : response.username,
-          }))
+    const Tokens = JSON.parse(localStorage.getItem('Tokens'));
+    if(!Tokens){
+      dispatch(logout())
+      return 
+    }
+    if(Tokens && userInfo.autoLogin){
+      const fetchAuth = async () => {
+        await getUser()
+          .then(response => {
+            dispatch(login({
+              isLogined : true,
+              email : response.email,
+              username : response.username,
+            }))
+          })
           .catch(()=>{
               toast.error(<h3>유저 정보를 불러오지 못했다냥!<br/>로그인을 다시해달라냥!<br/>🐱</h3>, {
                 position: "top-center",
                 autoClose: 2000
               })
-              localStorage.removeItem('Token')
+              dispatch(logout())
+              localStorage.removeItem('Tokens')
           })
       }
-      return dispatch(logout())
+      return fetchAuth()
     }
-    setUserInfo(User)
-  },[])
+  },[userInfo.autoLogin, dispatch])
 
   return (
-    <div className="App">
-      <AppContext.Provider value={ userInfo }>
-        <ToastContainer/>
-        <Routes>
-          <Route path='/' element={<Layout userInfo={ userInfo }/>}>
-            <Route path='' element={<Main />} />
-            <Route path='about' element={<About />} />
-            <Route path='post' element={<Post />} />
-            <Route path='projects' element={<Projects />} />
-            <Route path='login' element={<Login setUserInfo={ setUserInfo }/>} />
-            <Route path='register' element={<Register />} />
-          </Route>
-          <Route path='/project' element={<ProjectsLayout />}>
-            <Route path='editor' element={<PostEditor />} />
-          </Route>
-        </Routes>
-      </AppContext.Provider>
-    </div>
+    <ThemeProvider theme={ themeMode ? darkTheme : lightTheme }>
+      <GlobalStyle />
+      <div className="App">
+          <ToastContainer/>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              <Route path='' element={<Main />} />
+              <Route path='about' element={<About />} />
+              <Route path='post' element={<Post />} />
+              <Route path='projects' element={<Projects />} />
+              <Route path='login' element={<Login />} />
+              <Route path='register' element={<Register />} />
+            </Route>
+            <Route path='/project' element={<ProjectsLayout />}>
+              <Route path='editor' element={<PostEditor />} />
+            </Route>
+          </Routes>   
+          <ThemeButton />   
+      </div>
+    </ThemeProvider>
   );
 }
 

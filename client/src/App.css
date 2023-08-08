@@ -1,6 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
 .Wrap {
     width: 100%;
     max-width: 1140px;
     padding: 0 20px;
     margin: auto;
+}
+.Pages {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+}
+.CustomWrap {
+    width: 100%;
+    max-width: 1140px;
+    padding: 80px 20px;
+    margin: 100px auto;
+    border-radius: 10px;
+    animation: opening 1s;
+    opacity: 1;
+    z-index: -11;
+}
+
+@keyframes opening {
+    0% {
+        margin-top: 300px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 100px;
+        opacity: 1;
+    }
+}
+a {
+    text-decoration: none;
 }

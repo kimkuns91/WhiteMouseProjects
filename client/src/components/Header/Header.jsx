@@ -1,15 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './Header.css'
-import { useContext } from 'react';
-import { AppContext } from '../../App';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../redux/user';
+import { logout } from '../../redux/userSlice';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Logo from '../../assets/images/Logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+
 const Header = ()=>{
-    const userInfo = useContext(AppContext);
-    // console.log(userInfo)
-    const isLogined = useSelector((state) => state.user.value.isLogined)
+    const userInfo = useSelector((state) => state.user.value)
     const dispatch = useDispatch()
     const navigate = useNavigate();
     
@@ -27,24 +27,32 @@ const Header = ()=>{
     }
     return(
         <div className='Header'>
+            <ToastContainer/>
             <div className='Wrap'>
-                <ToastContainer/>
-                <Link to='about'>About</Link>
-                <Link to='Post'>Post</Link>
-                <Link to='Projects'>Projects</Link>
-                {
-                    !isLogined
-                    ? <>
-                        <Link to='login'>Login</Link>
-                        <Link to='register'>SignUp</Link>
-                    </>
-                    : 
-                    <>
-                        <p>{ userInfo.username }</p>
-                        <button onClick={ logoutBtn }>Logout</button>
-                    </>
-                }
-
+                <div className='NavLeft'>
+                    <Link to='/'>
+                        <img className='Logo' src={ Logo } alt="" />
+                    </Link>
+                    <Link to='about'className='NavMenu'>About</Link>
+                    <Link to='Post'className='NavMenu'>Post</Link>
+                    <Link to='Projects'className='NavMenu'>Projects</Link>
+                </div>
+                <div className='NavRight'>
+                    {
+                        !userInfo.isLogined
+                        ? <>
+                            <Link to='login' className='NavMenu'>
+                                <FontAwesomeIcon icon={ faRightToBracket } />
+                            </Link>
+                            <Link to='register' className='NavMenu'>
+                                <FontAwesomeIcon icon={faUserPlus} />
+                            </Link>
+                        </>
+                        : <>
+                            <FontAwesomeIcon onClick={ logoutBtn } className='NavMenu LogoutBtn' icon={faRightFromBracket} />
+                        </>
+                    }
+                </div>
             </div>
         </div>
     )
