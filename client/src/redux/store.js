@@ -3,6 +3,8 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import user from "./userSlice";
 import theme from "./themeSlice";
+import post from "./postSlice";
+import project from "./projectSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const persistConfig = {
@@ -15,6 +17,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user,
     theme,
+    post,
+    project
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

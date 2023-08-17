@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { signin } from '../../services/authService';
 import { useDispatch } from "react-redux"
 import { login } from '../../redux/userSlice';
+import CatFrame from '../../components/CatFrame/CatFrame';
+import './Login.css'
 
 const Login = ()=>{
     const navigate = useNavigate();
@@ -45,28 +47,31 @@ const Login = ()=>{
             validateOnMount={true}
         >
             {({values, handleSubmit, handleChange, errors}) => (
-                <div>
+                <div className='Pages Login'>
                     <ToastContainer/>
-                    <form onSubmit={ handleSubmit } autoComplete="off">
+                    <CatFrame />
+                    <form className='LoginWrap' onSubmit={ handleSubmit } autoComplete="off">
                         <div>
-                            <label htmlFor="">이메일</label>
+                            <label className='HL05' htmlFor="email">이메일</label>
                             <input 
                                 type="text" 
                                 name="email"
+                                className='email'
                                 value={ values.email }
                                 onChange={ handleChange } 
                             />
                         </div>
                         <div>
-                            <label htmlFor="">비밀번호</label>
+                            <label className='HL05' htmlFor="password">비밀번호</label>
                             <input 
+                                className='password'
                                 type="password" 
                                 name="password"
                                 value={ values.password }
                                 onChange={ handleChange } 
                             />
                         </div>
-                        <div>
+                        <div className='autoLoginWrap'>
                             <label htmlFor="">자동 로그인</label>
                             <input 
                                 type="checkbox" 
@@ -75,7 +80,7 @@ const Login = ()=>{
                                 onChange={ handleChange } 
                             />
                         </div>
-                        <button type="submit">로그인</button>
+                        <button className='LoginBtn' type="submit">로그인</button>
                     </form>
                 </div>
             )}

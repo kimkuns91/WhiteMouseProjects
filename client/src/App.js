@@ -17,9 +17,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { login, logout } from './redux/userSlice';
 import { ThemeProvider } from 'styled-components';
-import ThemeButton from './components/ThemeButton/ThemeButton';
 import GlobalStyle from './styles/GlobalStyle.js';
 import { lightTheme, darkTheme } from './styles/theme';
+import PostDoc from './pages/Post/PostDoc';
 
 function App() {
   const userInfo = useSelector((state) => state.user.value)
@@ -64,6 +64,7 @@ function App() {
               <Route path='' element={<Main />} />
               <Route path='about' element={<About />} />
               <Route path='post' element={<Post />} />
+              <Route path='post/:postId' element={<PostDoc />} />
               <Route path='projects' element={<Projects />} />
               <Route path='login' element={<Login />} />
               <Route path='register' element={<Register />} />
@@ -71,8 +72,7 @@ function App() {
             <Route path='/project' element={<ProjectsLayout />}>
               <Route path='editor' element={<PostEditor />} />
             </Route>
-          </Routes>   
-          <ThemeButton />   
+          </Routes>    
       </div>
     </ThemeProvider>
   );

@@ -34,8 +34,9 @@ const Header = ()=>{
                         <img className='Logo' src={ Logo } alt="" />
                     </Link>
                     <Link to='about'className='NavMenu'>About</Link>
-                    <Link to='Post'className='NavMenu'>Post</Link>
-                    <Link to='Projects'className='NavMenu'>Projects</Link>
+                    <Link to='post'className='NavMenu'>Post</Link>
+                    <Link to='projects'className='NavMenu'>Projects</Link>
+                    <Link to='contact'className='NavMenu'>Contact</Link>
                 </div>
                 <div className='NavRight'>
                     {

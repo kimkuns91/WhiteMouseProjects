@@ -1,33 +1,28 @@
 import './Card.css'
 import TestImg from '../../assets/images/TestImg.png'
-const Card = ()=>{
+
+const Card = ({ url, title, keyword, desc, views, comment, createdAt })=>{
     return(
-        <div className="Card">
+        <a href={ url } className="Card">
             <div className='CardHeader'>
                 <img src={ TestImg } alt="TestImg" />
             </div>
             <div className='CardBody'>
                 <div className='CardBodyHead'>
-                    <h3>4월 15일 순천만 동행구해요!</h3>
-                    <p>#여수 #순천 #광양</p>
-                    <p>작성자: ENDORPHIN0710</p>
+                    <h3 className='HL06'>{ title }</h3>
+                    <p className='CT01'>{ keyword }</p>
                 </div>
                 <div className='CardBodyDesc'>
-                    <p>
-                    안녕하세요! <br />
-                    4월 15일 순천만 동행구합니다!
-                    </p>
+                    {/* <p className='BD01'>{ desc }</p> */}
+                    <div className='BD01 HTML' dangerouslySetInnerHTML={{ __html : desc }}/>
                 </div>
                 <div className='CardBodyFooter'>
-                    <hr />
-                    <div>
-                        <p>조회 38회</p>
-                        <p>댓글 4개</p>
-                        <p>2018/04/12</p>
-                    </div>
+                    <p className='CT02'>조회 { views }</p>
+                    <p className='CT02'>댓글 { comment }</p>
+                    <p className='CT02'>{ createdAt }</p>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
 export default Card

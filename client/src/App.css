@@ -10,12 +10,12 @@ body {
 }
 .Pages {
     width: 100%;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 200px);
 }
 .CustomWrap {
     width: 100%;
     max-width: 1140px;
-    padding: 80px 20px;
+    padding: 30px 20px 80px;
     margin: 100px auto;
     border-radius: 10px;
     animation: opening 1s;
@@ -35,4 +35,108 @@ body {
 }
 a {
     text-decoration: none;
+}
+/* Text */
+/* HeadLine */
+.HL01 {
+    font-size: 96px;
+}
+.HL02 {
+    font-size: 60px;
+}
+.HL03 {
+    font-size: 48px;
+}
+.HL04 {
+    font-size: 34px;
+}
+.HL05 {
+    font-size: 24px;
+}
+.HL06 {
+    font-size: 20px;
+}
+/* SubTitle */
+.ST01 {
+    font-size: 16px;
+}
+.ST02 {
+    font-size: 14px;
+}
+/* Body */
+.BD01 {
+    font-size: 16px;
+}
+.BD02 {
+    font-size: 14px;
+}
+/* Caption */
+.CT01 {
+    font-size: 14px;
+}
+.CT02 {
+    font-size: 12px;
+}
+
+/* modeChangeWrap */
+.modeChangeWrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    float: right;
+    margin-bottom: 50px;
+}
+.modeChangeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.modeChangeBtnActive{
+    background-color: #FD8800;
+    border-radius: 10px;
+}
+/* ListWrap */
+.ListWrap {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ListWrap .ListHead {
+    width: 100%;
+    background-color: #FD8800;
+    display: flex;
+    text-align: center;
+    padding: 15px 0;
+}
+.ListWrap .ListWrap01 {
+    width: 100px;
+}
+.ListWrap .ListWrap02 {
+    display: block;
+    width: calc(100% - 350px);
+}
+.ListWrap .ListWrap03 {
+    width: 150px;
+}
+.ListWrap .ListWrap04 {
+    width: 100px;
+}
+.ListWrap .ListBody {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    padding: 15px 0;
+}
+.CardModeWrap {
+    width: 100%;
+}
+button {
+    cursor: pointer;
 }

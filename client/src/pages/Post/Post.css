@@ -4,3 +4,8 @@
     box-sizing: border-box;
     display: inline-block;
 }
+.Post .PostControlWrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
