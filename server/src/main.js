@@ -10,7 +10,7 @@ const { connectToDatabase } = require('./mongo');
 connectToDatabase()  
     .then(() => {
         app.listen(PORT, () => {
-        console.log(`App listening at ${PORT}`);
+            console.log(`App listening at ${PORT}`);
         }) 
     })
     .catch(error => {

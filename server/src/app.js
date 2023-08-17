@@ -15,7 +15,7 @@ const mainRouter = require('./routes/index')
 app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/', (req, res) => {
-
+    res.json("Server Start")
 });
 
 app.use('/api', mainRouter)
