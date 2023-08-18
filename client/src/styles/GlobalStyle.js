@@ -2,41 +2,46 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body {        
-        background-color: ${(props) => props.theme.Background};
-        color:${(props) => props.theme.Text};
-        // transition: background-color 1s, color 1s;
+        background-color: ${(props) => props.theme.Backgourd01};
     }  
+    .Header {
+        
+    }
+    .Footer {
+
+    }
     .NavMenu {
-        color:${(props) => props.theme.Text};
+        color:${(props) => props.theme.HeadLine};
     }
-    .CustomWrap {
-        background-color: ${(props) => props.theme.BoardBackground};
-        border: ${(props) => props.theme.BoardBorder};
-        // transition: background-color 1s, border 1s;
+    .NavMenu:hover {
+        color:${(props) => props.theme.HeadLine};
+        transition: all 0.3s;
     }
-    .LoginWrap {
-        background-color: ${(props) => props.theme.BoardBackground};
-        border: ${(props) => props.theme.BoardBorder};
+    .BG01 {
+        background-color: ${(props) => props.theme.Backgourd01};
     }
-    a {
-        color : ${(props) => props.theme.Text};
+    .BG02 {
+        background-color: ${(props) => props.theme.Backgourd02};
     }
-    button {
-        background-color: ${(props) => props.theme.ButtonColor};
+    .BG03 {
+        background-color: ${(props) => props.theme.Backgourd03};
+    }
+    .BD01 {
+        border: 1px solid ${(props) => props.theme.Backgourd02}
+    }
+    .BD02 {
+        border: 1px solid ${(props) => props.theme.Backgourd03}
+    }
+
+    .Btn {
+        background-color: ${(props) => props.theme.ButtonColor} !important;
         color:${(props) => props.theme.ButtonTextColor}
     }
-    button:hover {
-        background-color: ${(props) => props.theme.ButtonColorHover};
-        // transition: background-color 0.3s, color 0.3s;
-    }
-    a:hover, button:hover {
+    .Btn:hover {
         color : ${(props) => props.theme.Hover};
         transition: color 0.3s;
     }
-    .LogoutBtn:hover {
-        color : ${(props) => props.theme.Hover};
-        transition: color 0.3s;
-    }
+
     .HL01 {
         color : ${(props) => props.theme.HeadLine};
     }
@@ -73,14 +78,8 @@ const GlobalStyle = createGlobalStyle`
     .CT02 {
         color : ${(props) => props.theme.Caption};
     }
-    .modeChangeWrap {
-        border: ${(props) => props.theme.modeChangeBorder};
-    }
-    .ListWrap {
-        border: ${(props) => props.theme.modeChangeBorder};
-    }
-    .PostHead {
-        border-bottom: 1px solid ${(props) => props.theme.Text};
+    .NT {
+        color : ${(props) => props.theme.Hover};
     }
 `;
 

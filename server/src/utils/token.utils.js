@@ -8,9 +8,10 @@ const { token : Token } = db;
 
 const { JWT_SECRET_KEY } = require('../common')
 
-exports.makeToken = ({ email }) =>{
+exports.makeToken = ({ email, user }) =>{
     const accessToken = jwt.sign({ 
-            email
+            email,
+            user
         }, 
         JWT_SECRET_KEY,
         {

@@ -4,6 +4,8 @@ import { Formik } from "formik";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createUser } from '../../services/userService';
+import './Register.css'
+import CatFrame from '../../components/CatFrame/CatFrame';
 
 const Register = ()=>{
     const navigate = useNavigate();
@@ -62,18 +64,20 @@ const Register = ()=>{
             validateOnMount={true}
         >
             {({values, handleSubmit, handleChange, errors}) => (
-                <div>
+                <div className='Register Pages'>
                     <ToastContainer/>
-                    <form onSubmit={ handleSubmit } autoComplete="off">
+                    <CatFrame />
+                    <form className='LoginWrap BG02' onSubmit={ handleSubmit } autoComplete="off">
                         <div>
-                            <label htmlFor="">이메일</label>
+                            <label className='HL05' htmlFor="">이메일</label>
                             <input 
                                 type="text" 
                                 name="email"
+                                className='Input'
                                 value={ values.email }
                                 onChange={ handleChange } 
                             />
-                            <div>
+                            <div className='Message NT'>
                                 {
                                     !values.email
                                     ? null
@@ -82,14 +86,15 @@ const Register = ()=>{
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="">닉네임</label>
+                            <label className='HL05' htmlFor="">닉네임</label>
                             <input 
                                 type="text" 
                                 name="username"
+                                className='Input'
                                 value={ values.username }
                                 onChange={ handleChange } 
                             />
-                            <div>
+                            <div className='Message NT'>
                                 {
                                     !values.username
                                     ? null
@@ -98,14 +103,15 @@ const Register = ()=>{
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="">비밀번호</label>
+                            <label className='HL05' htmlFor="">비밀번호</label>
                             <input 
                                 type="password" 
                                 name="password"
+                                className='Input'
                                 value={ values.password }
                                 onChange={ handleChange } 
                             />
-                            <div>
+                            <div className='Message NT'>
                                 {
                                     !values.password
                                     ? null
@@ -114,14 +120,15 @@ const Register = ()=>{
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="">비밀번호 확인</label>
+                            <label className='HL05' htmlFor="">비밀번호 확인</label>
                             <input 
                                 type="password" 
                                 name="password2"
+                                className='Input'
                                 value={ values.password2 }
                                 onChange={ handleChange } 
                             />
-                            <div>
+                            <div className='Message NT'>
                                 {
                                     !values.password2
                                     ? null
@@ -131,6 +138,7 @@ const Register = ()=>{
                         </div>
                         <button 
                             type="submit"
+                            className='LoginBtn Btn'
                         >회원가입</button>
                     </form>
                 </div>

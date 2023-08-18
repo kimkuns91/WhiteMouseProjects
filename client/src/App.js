@@ -20,6 +20,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle.js';
 import { lightTheme, darkTheme } from './styles/theme';
 import PostDoc from './pages/Post/PostDoc';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const userInfo = useSelector((state) => state.user.value)
@@ -68,10 +69,12 @@ function App() {
               <Route path='projects' element={<Projects />} />
               <Route path='login' element={<Login />} />
               <Route path='register' element={<Register />} />
+              <Route path='*' element={<NotFound />} />
             </Route>
             <Route path='/project' element={<ProjectsLayout />}>
               <Route path='editor' element={<PostEditor />} />
             </Route>
+
           </Routes>    
       </div>
     </ThemeProvider>

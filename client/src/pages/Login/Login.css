@@ -2,6 +2,7 @@
     padding: 120px 0;
 }
 .LoginWrap {
+    border-radius: 10px;
     width: 100%;
     max-width: 430px;
     padding: 50px 80px;

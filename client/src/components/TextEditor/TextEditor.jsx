@@ -109,8 +109,8 @@ const TextEditor = ({ setCategory, setKeyword, setTitle, desc, setDesc, writeEnd
         </div>
         <div className='TextEditorBottom'>
             <div className='TextEditorBottomWrap'>
-                <button className='writeEndBtn' onClick={ writeCancelBtn }>뒤로가기</button>
-                <button className='writeEndBtn' onClick={ writeEndBtn }>완료</button>
+                <button className='Btn' onClick={ writeCancelBtn }>뒤로가기</button>
+                <button className='Btn' onClick={ writeEndBtn }>완료</button>
             </div>
         </div>
       </div>

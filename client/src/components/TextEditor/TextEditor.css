@@ -108,15 +108,3 @@
     align-items: center;
     box-sizing: border-box;
 }
-
-.writeEndBtn {
-    padding: 10px 30px;
-    border: none;
-    background-color: #000;
-    border-radius: 25px;
-    font-size: 14px;
-}
-.writeEndBtn:hover {
-    background-color: #2b2b2b;
-    transition: all 0.3s;
-}

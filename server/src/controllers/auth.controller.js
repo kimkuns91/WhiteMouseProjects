@@ -20,13 +20,13 @@ exports.signin = async (req, res)=>{
         if (!isPasswordValid){
             return res.status(401).json({ message : "비밀번호가 일치하지 않습니다." })
         }
-        accessToken = await makeToken({ email })
+        accessToken = await makeToken({ email, role : user.role })
         if(autoLogin){
             refreshToken = await makeRefreshTokenInfinite({ email })
         } else {
             refreshToken = await makeRefreshToken({ email })
         }
-        res.status(200).json({ message : "Success", accessToken, refreshToken, email : user.email, username : user.username})
+        res.status(200).json({ message : "Success", accessToken, refreshToken, email : user.email, username : user.username, role : user.role })
     } catch (error) {
         console.error('Error during signing:', error);
         res.status(500).json({ message: 'Server error' });

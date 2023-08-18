@@ -4,7 +4,8 @@ const initialStateValue = {
     isLogined : false,
     autoLogin : false,
     email : null,
-    username : null
+    username : null,
+    role : null
 }
 
 export const userSlice = createSlice({

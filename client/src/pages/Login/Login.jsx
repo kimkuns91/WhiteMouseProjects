@@ -19,7 +19,8 @@ const Login = ()=>{
                     isLogined : true,
                     autoLogin, 
                     email: response.email,
-                    username: response.username
+                    username: response.username,
+                    role : response.role
                 }))
                 toast.success(<h3>{ response.username } 친구! 반갑다 찍!<br/>🐭</h3>, {
                     position: "top-center",
@@ -50,7 +51,7 @@ const Login = ()=>{
                 <div className='Pages Login'>
                     <ToastContainer/>
                     <CatFrame />
-                    <form className='LoginWrap' onSubmit={ handleSubmit } autoComplete="off">
+                    <form className='LoginWrap BG02' onSubmit={ handleSubmit } autoComplete="off">
                         <div>
                             <label className='HL05' htmlFor="email">이메일</label>
                             <input 
@@ -72,15 +73,16 @@ const Login = ()=>{
                             />
                         </div>
                         <div className='autoLoginWrap'>
-                            <label htmlFor="">자동 로그인</label>
+                            <label className='BD02' htmlFor="autoLogin">자동 로그인</label>
                             <input 
                                 type="checkbox" 
+                                id='autoLogin'
                                 name="autoLogin"
                                 value={ values.autoLogin }
                                 onChange={ handleChange } 
                             />
                         </div>
-                        <button className='LoginBtn' type="submit">로그인</button>
+                        <button className='LoginBtn Btn' type="submit">로그인</button>
                     </form>
                 </div>
             )}
