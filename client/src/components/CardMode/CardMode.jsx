@@ -2,8 +2,9 @@ import { useState } from "react";
 import Card from "../Card/Card"
 import Paging from "../Paging/Paging";
 import { useSelector } from "react-redux";
+import './CardMode.css'
 
-const CardMode = ({ data, userRole })=>{
+const CardMode = ({ data, userRole, ContentTitle })=>{
     const [ page, setPage ] = useState(1);
 
     const itemsCountPerPage = 6
@@ -12,7 +13,7 @@ const CardMode = ({ data, userRole })=>{
     let currentData = data.slice(indexOfFirst, indexOfLast);
 
     return(
-        <div className="CardMode">
+        <>
             <div className="CardModeWrap">
                 {
                     currentData.map((post, index)=>
@@ -31,8 +32,8 @@ const CardMode = ({ data, userRole })=>{
                 }
             </div>    
             {
-                userRole === 'Admin'
-                ? <a href="/project/editor" className="FLR">글 작성</a>
+                userRole === 'Admin' && ContentTitle === 'POST'
+                ? <a href="/project/editor" className="Btn FLR">글 작성</a>
                 : null
             }
             <Paging
@@ -41,7 +42,7 @@ const CardMode = ({ data, userRole })=>{
                 count={ data.length } 
                 setPage={ setPage }
             />
-        </div>
+        </>
     )
 }
 export default CardMode

@@ -1,0 +1,26 @@
+.OpeningForm {
+    animation: opening 1s;
+    opacity: 1;
+}
+@keyframes opening {
+    0% {
+        margin-top: 200px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+.ContentForm {
+    width: 100%;
+    max-width: 1140px;
+    padding: 30px 50px 80px;
+    box-sizing: border-box;
+    margin: 0px auto;
+    border-radius: 10px;
+}
+.ContentForm .HL04 {
+    margin-bottom: 50px;
+}
+

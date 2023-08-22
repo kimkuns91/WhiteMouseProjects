@@ -2,10 +2,7 @@ import { useSelector } from "react-redux"
 import { modeChange } from '../../redux/postSlice';
 import { useEffect, useState } from "react"
 import { findAllPost } from "../../services/postService"
-import CardMode from "../../components/CardMode/CardMode"
-import ListMode from "../../components/ListMode/ListMode"
-import ChangeMode from "../../components/ChangeMode/ChangMode"
-import './Post.css'
+import ContentForm from "../../components/ContentForm/ContentForm";
 
 const Post = ()=>{
     const [ loading, setLoading ] = useState(true)
@@ -24,15 +21,14 @@ const Post = ()=>{
         fetchData()
     },[])
     return(
-        <div className="Post Pages">
-            <div className="CustomWrap BG02 BD01">
-                <ChangeMode modeChange={ modeChange } postMode={ postMode }/>
-                {
-                    postMode === 'grid'
-                    ? <CardMode data={ data } userRole={ userRole }/>    
-                    : <ListMode data={ data } userRole={ userRole }/>
-                }
-            </div>
+        <div className="Page">
+            <ContentForm 
+                ContentTitle = { "POST" } 
+                data = { data } 
+                userRole = { userRole } 
+                modeChange = { modeChange } 
+                postMode = { postMode }
+            />
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Paging from "../Paging/Paging";
+import './ListMode.css'
 
 const ListMode = ({ data, userRole }) => {
     const [ page, setPage ] = useState(1);
@@ -10,7 +11,7 @@ const ListMode = ({ data, userRole }) => {
     let currentData = data.slice(indexOfFirst, indexOfLast);
     let dataNum = data.length - indexOfFirst
     return(
-        <div className="ListMode"> 
+        <> 
             <div className="ListWrap">
                 <div className="ListHead">
                     <div className="ListWrap01">번호</div>
@@ -43,7 +44,7 @@ const ListMode = ({ data, userRole }) => {
                 setPage={ setPage }
             />
 
-        </div>
+        </>
     )
 }
 export default ListMode

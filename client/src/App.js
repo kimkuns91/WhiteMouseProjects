@@ -74,7 +74,6 @@ function App() {
             <Route path='/project' element={<ProjectsLayout />}>
               <Route path='editor' element={<PostEditor />} />
             </Route>
-
           </Routes>    
       </div>
     </ThemeProvider>

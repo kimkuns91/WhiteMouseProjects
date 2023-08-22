@@ -1,43 +1,17 @@
-.Login {
-    padding: 120px 0;
-}
-.LoginWrap {
-    border-radius: 10px;
-    width: 100%;
-    max-width: 430px;
-    padding: 50px 80px;
-    margin: 0 auto;
-    box-sizing: border-box;
+.Login .SmallForm {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.LoginWrap > div {
-    width: 100%;
+.Login .LargeBtn {
+    margin-top: 30px;
 }
-.LoginWrap > div > .HL05 {
-    width: 100%;
-    display: block;
-    text-align: center;
-    margin-bottom: 15px;
-}
-.LoginWrap > div > .email, .password {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 10px;
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 25px;
-}
-.autoLoginWrap {
+.Login .CheckboxWrap {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    margin: 15px 0;
 }
-.LoginBtn {
-    margin-top: 30px;
-    padding: 10px 0;
-    width: 100%;
-    border-radius: 10px;
+.Login .FormCheckbox {
+    margin-left: 10px;
 }

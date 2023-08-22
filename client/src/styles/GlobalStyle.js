@@ -10,12 +10,24 @@ const GlobalStyle = createGlobalStyle`
     .Footer {
 
     }
+    a {
+        color:${(props) => props.theme.HeadLine};
+    }
+
     .NavMenu {
         color:${(props) => props.theme.HeadLine};
     }
     .NavMenu:hover {
         color:${(props) => props.theme.HeadLine};
         transition: all 0.3s;
+    }
+    .Form {
+        background-color: ${(props) => props.theme.Backgourd02};
+        border: 1px solid ${(props) => props.theme.Backgourd03}
+    }
+    .ContentForm {
+        background-color: ${(props) => props.theme.Backgourd02};
+        border: 1px solid ${(props) => props.theme.Backgourd03}
     }
     .BG01 {
         background-color: ${(props) => props.theme.Backgourd01};
@@ -34,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .Btn {
+        background-color: ${(props) => props.theme.ButtonColor} !important;
+        color:${(props) => props.theme.ButtonTextColor}
+    }
+    .LargeBtn {
         background-color: ${(props) => props.theme.ButtonColor} !important;
         color:${(props) => props.theme.ButtonTextColor}
     }
@@ -79,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
         color : ${(props) => props.theme.Caption};
     }
     .NT {
-        color : ${(props) => props.theme.Hover};
+        color : ${(props) => props.theme.Orange};
     }
 `;
 

@@ -5,9 +5,10 @@ body {
 a {
     text-decoration: none;
 }
-.Pages {
+.Page {
     width: 100%;
     min-height: calc(100vh - 140px);
+    padding: 80px 0;
 }
 .Wrap {
     width: 100%;
@@ -15,30 +16,42 @@ a {
     padding: 0 20px;
     margin: auto;
 }
-
-.CustomWrap {
+.SmallWrap {
     width: 100%;
-    max-width: 1140px;
-    padding: 30px 20px 80px;
-    margin: 100px auto;
-    border-radius: 10px;
-    animation: opening 1s;
-    opacity: 1;
-    z-index: -11;
+    max-width: 380px;
+    padding: 0 20px;
+    margin: auto;
 }
-
-@keyframes opening {
-    0% {
-        margin-top: 300px;
-        opacity: 0;
-    }
-    100% {
-        margin-top: 100px;
-        opacity: 1;
-    }
+.Form {
+    padding: 80px 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.SmallForm {
+    padding: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.FormInput {
+    background: #eee;
+    padding: 16px;
+    width: 100%;
+    margin: 8px auto;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
+}
+.FormInput::placeholder {
+    font-weight: 600;
+    color: #777;
 }
 
 /* Text */
+.TextCenter {
+    text-align: center;
+}
 /* HeadLine */
 .HL01 {
     font-size: 96px;
@@ -81,9 +94,9 @@ a {
 }
 /* Button */
 .Btn {
-    display: block;
+    /* display: block; */
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px 20px;
     border: none;
 }
@@ -93,7 +106,9 @@ a {
 }
 .LargeBtn {
     width: 100%;
-    padding: 10px 0;
+    padding: 16px;
+    border-radius: 20px;
+    font-weight: 500;
 }
 
 /* Float */
@@ -131,41 +146,7 @@ a {
     background-color: #FD8800;
     border-radius: 10px;
 }
-/* ListWrap */
-.ListWrap {
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.ListWrap .ListHead {
-    width: 100%;
-    background-color: #FD8800;
-    display: flex;
-    text-align: center;
-    padding: 15px 0;
-}
-.ListWrap .ListWrap01 {
-    width: 100px;
-}
-.ListWrap .ListWrap02 {
-    display: block;
-    width: calc(100% - 350px);
-}
-.ListWrap .ListWrap03 {
-    width: 150px;
-}
-.ListWrap .ListWrap04 {
-    width: 100px;
-}
-.ListWrap .ListBody {
-    width: 100%;
-    display: flex;
-    text-align: center;
-    padding: 15px 0;
-}
-.CardModeWrap {
-    width: 100%;
-}
+
 button {
     cursor: pointer;
 }

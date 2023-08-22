@@ -51,30 +51,29 @@ const Login = ()=>{
                 <div className='Pages Login'>
                     <ToastContainer/>
                     <CatFrame />
-                    <form className='LoginWrap BG02' onSubmit={ handleSubmit } autoComplete="off">
-                        <div>
-                            <label className='HL05' htmlFor="email">이메일</label>
+                    <form className='SmallWrap BG02 SmallForm' onSubmit={ handleSubmit } autoComplete="off">
+                        <h3 className='HL05 TextCenter'>Sign In</h3>
+                        <input 
+                            type="email" 
+                            name="email"
+                            className='FormInput'
+                            placeholder='Email'
+                            value={ values.email }
+                            onChange={ handleChange } 
+                        />
+                        <input 
+                            className='FormInput'
+                            type="password" 
+                            name="password"
+                            placeholder='Password'
+                            value={ values.password }
+                            onChange={ handleChange } 
+                        />
+
+                        <div className='CheckboxWrap'>
+                            <label className='ST01' htmlFor="autoLogin">Remember Me</label>
                             <input 
-                                type="text" 
-                                name="email"
-                                className='email'
-                                value={ values.email }
-                                onChange={ handleChange } 
-                            />
-                        </div>
-                        <div>
-                            <label className='HL05' htmlFor="password">비밀번호</label>
-                            <input 
-                                className='password'
-                                type="password" 
-                                name="password"
-                                value={ values.password }
-                                onChange={ handleChange } 
-                            />
-                        </div>
-                        <div className='autoLoginWrap'>
-                            <label className='BD02' htmlFor="autoLogin">자동 로그인</label>
-                            <input 
+                                className='FormCheckbox'
                                 type="checkbox" 
                                 id='autoLogin'
                                 name="autoLogin"
@@ -82,7 +81,7 @@ const Login = ()=>{
                                 onChange={ handleChange } 
                             />
                         </div>
-                        <button className='LoginBtn Btn' type="submit">로그인</button>
+                        <button className='LargeBtn' type="submit">SIGN IN</button>
                     </form>
                 </div>
             )}

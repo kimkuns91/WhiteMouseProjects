@@ -9,6 +9,7 @@ const lightTheme = {
     ButtonColor : '#FD8800',
     ButtonTextColor : '#FEFEFE',
     Hover : '#FD8800',
+    Orange : '#FD8800',
 };
 
 const darkTheme = {
@@ -22,6 +23,7 @@ const darkTheme = {
     ButtonColor : '#FD8800',
     ButtonTextColor : '#FEFEFE',
     Hover : '#FD8800',
+    Orange : '#FD8800',
 };
 
 export { lightTheme, darkTheme };
