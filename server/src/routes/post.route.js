@@ -9,5 +9,6 @@ router.get("/:id", controller.findPost);
 router.get("/", controller.findAllPost);
 router.put("/:id", controller.updatePost);
 router.delete("/:id", controller.deletePost);
+router.put("/views/:id", controller.postViewUp);
 
 module.exports = router;

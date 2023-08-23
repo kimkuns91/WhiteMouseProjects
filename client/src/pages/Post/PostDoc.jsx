@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react"
-import { findPost } from "../../services/postService"
+import { findPost, postViewUp } from "../../services/postService"
 import { useParams } from "react-router-dom"
 import TextareaAutosize from 'react-textarea-autosize';
 import './PostDoc.css'
+import PostCRUD from "../../components/PostCRUD/PostCRUD";
 
 const PostDoc = ()=>{
     const { postId } = useParams()
     const [ data, setData ] = useState({})
-    console.log(data)
-    useEffect(()=>{
-        findPost({ id: postId })
+    const fetchData = async ()=>{
+        await findPost({ id: postId })
             .then(response => setData(response.data))
             .catch(err =>
                 console.log(err.message.message)    
             )
+    }
+    useEffect(()=>{
+        fetchData()
+        postViewUp({ id: postId })
     },[postId])
     return(
         <div>
@@ -36,14 +40,15 @@ const Post = ({ data })=>{
     //     setComment(e.target.value)
     // }
     return(
-        <div className="Wrap">
+        <div className="Wrap Page">
             <div className="PostHead">
                 <p className="ST01">{ data.category }</p>
-                <p className="HL05">{ data.title }</p>
+                <p className="HL04">{ data.title }</p>
                 <p className="CT01">{ data.keyword }</p>
                 <p className="CT02 ">{ data.createdAt }</p>
+                <PostCRUD postId = { data._id } />
             </div>
-            <div className="White" dangerouslySetInnerHTML={{ __html : data.desc }}/>
+            <div className="InnerHTML" dangerouslySetInnerHTML={{ __html : data.desc }}/>
             {/* <div className="PostFoot">
                 <TextareaAutosize
                     cacheMeasurements 

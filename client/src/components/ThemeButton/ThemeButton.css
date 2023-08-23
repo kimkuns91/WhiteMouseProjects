@@ -1,5 +1,5 @@
 .ThemeButton {
-    position: absolute;
+    position: fixed;
     width: 80px;
     right: 100px;
     bottom: 100px;
@@ -9,11 +9,6 @@
     filter: grayscale(1);
 }
 .ThemeButton:hover {
-    position: absolute;
-    width: 80px;
-    right: 100px;
-    bottom: 100px;
-    cursor: pointer;
     animation: Cheese 0.3s infinite;
 }
 @keyframes Cheese {

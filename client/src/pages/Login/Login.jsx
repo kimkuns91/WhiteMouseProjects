@@ -48,7 +48,7 @@ const Login = ()=>{
             validateOnMount={true}
         >
             {({values, handleSubmit, handleChange, errors}) => (
-                <div className='Pages Login'>
+                <div className='Page Login'>
                     <ToastContainer/>
                     <CatFrame />
                     <form className='SmallWrap BG02 SmallForm' onSubmit={ handleSubmit } autoComplete="off">

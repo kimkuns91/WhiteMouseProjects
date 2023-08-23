@@ -27,6 +27,10 @@
     width: calc(100% - 450px);
     padding: 10px 20px;
 }
+.ListWrap02:hover {
+    color: #FD8800;
+    transition: all 0.3s;
+}
 
 .ListBody:last-child {
     overflow: hidden;

@@ -7,7 +7,7 @@ const data = [
         title : "Geegle",
         keyword : "#ChatGPT #JavaScript #React",
         desc : "ChatGPT를 이용한 Google 폼 검색 엔진",
-        views : "Scret",
+        views : "Secret",
         comment : [],
         createdAt : "2023-08-22"
     },
@@ -15,7 +15,7 @@ const data = [
         title : "Goom",
         keyword : "#WTC #JavaScript #React",
         desc : "WTC 이용한 화상채팅",
-        views : "Scret",
+        views : "Secret",
         comment : [],
         createdAt : "2023-08-22"
     },

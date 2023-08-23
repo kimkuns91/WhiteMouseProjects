@@ -5,11 +5,13 @@ import { logout } from '../../redux/userSlice';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from '../../assets/images/Logo.png'
+import LogoBlack from '../../assets/images/LogoBlack.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ()=>{
     const userInfo = useSelector((state) => state.user.value)
+    const themeMode = useSelector((state) => state.theme.value.darkMode)
     const dispatch = useDispatch()
     const navigate = useNavigate();
     
@@ -31,7 +33,11 @@ const Header = ()=>{
             <div className='Wrap'>
                 <div className='NavLeft'>
                     <Link to='/'>
-                        <img className='Logo' src={ Logo } alt="" />
+                        {
+                            themeMode
+                            ? <img className='Logo' src={ Logo } alt="" />
+                            : <img className='Logo' src={ LogoBlack } alt="" />
+                        }
                     </Link>
                     <Link to='about'className='NavMenu'>About</Link>
                     <Link to='post'className='NavMenu'>Post</Link>

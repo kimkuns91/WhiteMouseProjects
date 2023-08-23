@@ -9,7 +9,7 @@ import { uploadImg } from '../../services/uploadService';
 import ImageResize from 'quill-image-resize';
 Quill.register('modules/ImageResize', ImageResize);
 
-const TextEditor = ({ setCategory, setKeyword, setTitle, desc, setDesc, writeEndBtn })=>{
+const TextEditor = ({ category, setCategory, keyword, setKeyword, title, setTitle, desc, setDesc, writeEndBtn })=>{
     const quillRef = useRef()
     const navigate = useNavigate()
     const imageHandler = () => {
@@ -85,17 +85,21 @@ const TextEditor = ({ setCategory, setKeyword, setTitle, desc, setDesc, writeEnd
     return (
       <div className='TextEditorWrap'> 
         <div className='TextEditor'>
-            <Category handleCategory={ handleCategory }/>
+            <Category 
+              category = { category }
+              handleCategory={ handleCategory }
+            />
             <TextareaAutosize 
                 cacheMeasurements 
                 className='TitleInput' 
                 type="text" 
                 placeholder='제목을 입력하세요' 
+                value={ title }
                 onKeyDown={ handleKeyDown } 
                 onChange={ handleTitle }
             />
             <div className='keywordWrap'>
-              <input type="text" className='keyword' placeholder='키워드' onChange={ handleKeyword }/>
+              <input type="text" className='keyword' placeholder='키워드' value={ keyword } onChange={ handleKeyword }/>
             </div>
             <ReactQuill 
                 ref={quillRef}

@@ -2,7 +2,7 @@ import './Main.css'
 
 const Main = ()=>{
     return(
-        <div className='Main Pages'>
+        <div className='Main Page'>
 
         </div>
     )

@@ -73,6 +73,7 @@ function App() {
             </Route>
             <Route path='/project' element={<ProjectsLayout />}>
               <Route path='editor' element={<PostEditor />} />
+              <Route path='editor/:postId' element={<PostEditor />} />
             </Route>
           </Routes>    
       </div>

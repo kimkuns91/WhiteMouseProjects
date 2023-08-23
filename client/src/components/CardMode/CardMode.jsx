@@ -3,10 +3,11 @@ import Card from "../Card/Card"
 import Paging from "../Paging/Paging";
 import { useSelector } from "react-redux";
 import './CardMode.css'
+import Search from "../Search/Search";
+import WriteButton from "../WriteButton/WriteButton";
 
-const CardMode = ({ data, userRole, ContentTitle })=>{
+const CardMode = ({ data, userRole, ContentTitle, BaseURL })=>{
     const [ page, setPage ] = useState(1);
-
     const itemsCountPerPage = 6
     const indexOfLast = page * itemsCountPerPage;
     const indexOfFirst = indexOfLast - itemsCountPerPage;
@@ -33,9 +34,10 @@ const CardMode = ({ data, userRole, ContentTitle })=>{
             </div>    
             {
                 userRole === 'Admin' && ContentTitle === 'POST'
-                ? <a href="/project/editor" className="Btn FLR">글 작성</a>
+                ? <WriteButton />
                 : null
             }
+            <Search BaseURL={ BaseURL }/>
             <Paging
                 page={ page } 
                 itemsCountPerPage = { itemsCountPerPage }

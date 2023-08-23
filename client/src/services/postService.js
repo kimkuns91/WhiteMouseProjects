@@ -13,6 +13,9 @@ export const findAllPost = () => {
 export const updatePost = ({ id, category, title, keyword, desc }) => {
     return axios.put(API_URL + `post/${id}`, { category, title, keyword, desc });
 };
-export const deletePost = (id) => {
+export const deletePost = ({ id }) => {
     return axios.delete(API_URL + `post/${id}`);
+};
+export const postViewUp = ({ id }) => {
+    return axios.put(API_URL + `post/views/${id}`);
 };

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Paging from "../Paging/Paging";
 import './ListMode.css'
+import Search from "../Search/Search";
+import WriteButton from "../WriteButton/WriteButton";
 
-const ListMode = ({ data, userRole }) => {
+const ListMode = ({ data, userRole, ContentTitle, BaseURL }) => {
     const [ page, setPage ] = useState(1);
 
     const itemsCountPerPage = 10
@@ -12,7 +14,7 @@ const ListMode = ({ data, userRole }) => {
     let dataNum = data.length - indexOfFirst
     return(
         <> 
-            <div className="ListWrap">
+            <div className="ListWrap ST01">
                 <div className="ListHead">
                     <div className="ListWrap01">번호</div>
                     <div className="ListWrap02">제목</div>
@@ -31,12 +33,11 @@ const ListMode = ({ data, userRole }) => {
                 }
             </div>
             {
-                userRole === 'Admin'
-                ? <div className="BtnWrap">
-                    <a href="/project/editor" className="Btn FLR">글 작성</a>
-                </div> 
+                userRole === 'Admin' && ContentTitle === 'POST'
+                ? <WriteButton />
                 : null
             }
+            <Search BaseURL = { BaseURL }/>
             <Paging
                 page={ page } 
                 itemsCountPerPage = { itemsCountPerPage }

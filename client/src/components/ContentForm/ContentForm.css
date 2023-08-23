@@ -14,13 +14,22 @@
 }
 .ContentForm {
     width: 100%;
-    max-width: 1140px;
+    /* max-width: 1140px; */
     padding: 30px 50px 80px;
     box-sizing: border-box;
     margin: 0px auto;
     border-radius: 10px;
 }
 .ContentForm .HL04 {
+    margin-top: 30px;
     margin-bottom: 50px;
 }
 
+.ContentForm .HL04:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    background-color: #FD8800;
+    margin: 10px auto;
+}

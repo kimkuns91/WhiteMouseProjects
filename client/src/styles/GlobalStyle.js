@@ -5,10 +5,13 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.Backgourd01};
     }  
     .Header {
-        
+        border-bottom: 1px solid ${(props) => props.theme.Backgourd03}
     }
     .Footer {
 
+    }
+    .InnerHTML {
+        color:${(props) => props.theme.HeadLine};
     }
     a {
         color:${(props) => props.theme.HeadLine};
@@ -18,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
         color:${(props) => props.theme.HeadLine};
     }
     .NavMenu:hover {
-        color:${(props) => props.theme.HeadLine};
+        color:${(props) => props.theme.Orange};
         transition: all 0.3s;
     }
     .Form {
@@ -29,6 +32,12 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.Backgourd02};
         border: 1px solid ${(props) => props.theme.Backgourd03}
     }
+    .modeChangeWrap {
+        border: 1px solid ${(props) => props.theme.Backgourd03}
+    }
+    .Card .CardBody {
+        background-color: ${(props) => props.theme.Backgourd03};
+    }
     .BG01 {
         background-color: ${(props) => props.theme.Backgourd01};
     }
@@ -38,13 +47,12 @@ const GlobalStyle = createGlobalStyle`
     .BG03 {
         background-color: ${(props) => props.theme.Backgourd03};
     }
-    .BD01 {
-        border: 1px solid ${(props) => props.theme.Backgourd02}
-    }
-    .BD02 {
+    .ListHead, .ListBody {
         border: 1px solid ${(props) => props.theme.Backgourd03}
     }
-
+    .PostHead {
+        border-bottom: 1px solid ${(props) => props.theme.Backgourd03}
+    }
     .Btn {
         background-color: ${(props) => props.theme.ButtonColor} !important;
         color:${(props) => props.theme.ButtonTextColor}
@@ -52,10 +60,6 @@ const GlobalStyle = createGlobalStyle`
     .LargeBtn {
         background-color: ${(props) => props.theme.ButtonColor} !important;
         color:${(props) => props.theme.ButtonTextColor}
-    }
-    .Btn:hover {
-        color : ${(props) => props.theme.Hover};
-        transition: color 0.3s;
     }
 
     .HL01 {
