@@ -3,7 +3,7 @@ name: dev branch auto ci process script
 
 on: # 아래 job을 실행시킬 상황
   push:
-    branches: [ dev ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -19,9 +19,10 @@ jobs:
           key: ${{ secrets.REMOTE_PRIVATE_KEY }} # ec2 instance pem key
           port: ${{ secrets.REMOTE_SSH_PORT }} # 접속포트
           script: | # 실행할 스크립트
-            cd /home/ubuntu/Server-V2
-            git pull origin dev
+            cd /home/ubuntu/WhiteMouseProjects
+            git pull origin main
+            cd /home/ubuntu/WhiteMouseProjects/server
             pm2 kill
             npm i --force
-            npm run build
-            pm2 start dist/main.js
+            pm2 start src/main.js
+            
