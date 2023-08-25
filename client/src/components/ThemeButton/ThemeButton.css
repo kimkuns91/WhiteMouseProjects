@@ -28,3 +28,8 @@
         transform: rotate(0)
     }
 }
+@media ( max-width : 768px ) {
+    .ThemeButton {
+        display: none;
+    }
+}

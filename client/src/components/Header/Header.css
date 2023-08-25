@@ -25,3 +25,23 @@
 .Header .LogoutBtn {
     cursor: pointer;
 }
+.SideBarBtn {
+    display: none;
+}
+@media ( max-width : 768px ) {
+    .Header .Logo {
+        margin-right: 0;
+    }
+    .Header .NavMenu {
+        margin: 0;
+    }
+    .Header .NavLeft .NavMenu {
+        display: none;
+    }
+    .SideBarBtn {
+        display: block;
+    }
+    .registerBtn {
+        display: none;
+    }
+}

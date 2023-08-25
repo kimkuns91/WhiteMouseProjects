@@ -7,7 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 import Logo from '../../assets/images/Logo.png'
 import LogoBlack from '../../assets/images/LogoBlack.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserPlus, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faUserPlus, faRightToBracket, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import Sidebar from '../Sidebar/Sidebar';
+import { useState } from 'react';
 
 const Header = ()=>{
     const userInfo = useSelector((state) => state.user.value)
@@ -15,6 +17,7 @@ const Header = ()=>{
     const dispatch = useDispatch()
     const navigate = useNavigate();
     
+    const [ sidebar, setSidebar ] = useState(false)
     const logoutBtn = ()=>{
         toast.info(<h3>다음에 봐요 찍찍!<br/>🐭</h3>, {
             position: "top-center",
@@ -30,7 +33,16 @@ const Header = ()=>{
     return(
         <div className='Header'>
             <ToastContainer/>
+            <Sidebar 
+                sidebar = { sidebar }
+                setSidebar = { setSidebar }
+            />
             <div className='Wrap'>
+                <div className='SideBarBtn NavMenu' onClick={()=>{
+                    setSidebar(true)
+                }}>
+                    <FontAwesomeIcon icon={ faBars } />
+                </div>
                 <div className='NavLeft'>
                     <Link to='/'>
                         {
@@ -51,7 +63,7 @@ const Header = ()=>{
                             <Link to='login' className='NavMenu'>
                                 <FontAwesomeIcon icon={ faRightToBracket } />
                             </Link>
-                            <Link to='register' className='NavMenu'>
+                            <Link to='register' className='NavMenu registerBtn'>
                                 <FontAwesomeIcon icon={faUserPlus} />
                             </Link>
                         </>

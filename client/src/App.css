@@ -152,3 +152,8 @@ a {
 button {
     cursor: pointer;
 }
+@media ( max-width : 768px ) {
+    .Wrap {
+        padding: 0 16px;
+    }
+}
