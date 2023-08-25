@@ -33,3 +33,8 @@
     background-color: #FD8800;
     margin: 10px auto;
 }
+@media (max-width : 768px) {
+    .ContentForm {
+        padding: 30px 16px 50px;
+    }
+}

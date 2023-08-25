@@ -51,7 +51,7 @@
     text-overflow: ellipsis;
 }
 
-.Card .CardBodyDesc .HTML > p > img {
+.Card .CardBodyDesc .HTML img {
     display: none;
 }
 .Card:hover .CardBodyDesc {

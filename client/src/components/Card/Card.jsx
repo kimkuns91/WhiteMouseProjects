@@ -2,10 +2,24 @@ import './Card.css'
 import TestImg from '../../assets/images/TestImg.png'
 
 const Card = ({ url, title, keyword, desc, views, comment, createdAt })=>{
+    const extractFirstImageSrc = (html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const imgElement = doc.querySelector('img');
+        if (imgElement) {
+            return imgElement.getAttribute('src');
+        }
+        return null;
+    };
+    const firstImageSrc = extractFirstImageSrc(desc);
+    console.log(firstImageSrc)
     return(
         <a href={ url } className="Card">
             <div className='CardHeader'>
-                <img src={ TestImg } alt="TestImg" />
+                <img src={ 
+                    firstImageSrc
+                    ? firstImageSrc
+                    : TestImg 
+                } alt="TestImg" />
             </div>
             <div className='CardBody'>
                 <div className='CardBodyHead'>
