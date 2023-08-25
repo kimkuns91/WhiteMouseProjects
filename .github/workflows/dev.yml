@@ -21,8 +21,11 @@ jobs:
           script: | # 실행할 스크립트
             cd /home/ubuntu/WhiteMouseProjects
             git pull origin main
+            cd /home/ubuntu/WhiteMouseProjects/client
+            npm install
+            npm run build
             cd /home/ubuntu/WhiteMouseProjects/server
             pm2 kill
-            npm i --force
+            npm install
             pm2 start src/main.js
             
