@@ -15,7 +15,7 @@ const mainRouter = require('./routes/index')
 app.use(express.static(path.join(__dirname, '../../client/build')));
 
 app.get('/', (req, res) => {
-    res.json("Server Start")
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.use('/api', mainRouter)
@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
     res.send(err.message)
 })
 app.get('*', (req, res) => {
-
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 module.exports = app

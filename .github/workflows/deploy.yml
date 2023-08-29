@@ -1,58 +1,31 @@
-name: deploy
-
+name: remote ssh command for deploy
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-    
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
 jobs:
   build:
-    runs-on: ubuntu-20.04
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    name: deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - name: Checkout source code.
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: create env file
-        working-directory: ./server
-        run: |
-          touch .env
-          cat << EOF >> .env
-          ${{ secrets.ENV }}
-
-      - name: build client files
-        working-directory: ./client
-        run: |
-          npm install
-          npm build
-
-      - name: zip distributions
-        run: zip -r whitemouse.zip ./client/dist ./server ./appspec.yml ./scripts
-
-      - name: AWS configure credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
-
-      - name: upload to S3
-        run: aws s3 cp --region ap-northeast-2 ./whitemouse.zip s3://white-mouse-deploy/public/
-
-      - name: deploy with AWS codeDeploy
-        run: aws deploy create-deployment
-          --application-name white-mouse-deploy
-          --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name deploy-group
-          --s3-location bucket=white-mouse-deploy,bundleType=zip,key=public/whitemouse.zip
+    - name: executing remote ssh commands using key
+      uses: appleboy/ssh-action@master
+      with:
+          host: ${{ secrets.REMOTE_IP }} # 인스턴스 IP
+          username: ${{ secrets.REMOTE_USER }} # 우분투 아이디
+          key: ${{ secrets.REMOTE_PRIVATE_KEY }} # ec2 instance pem key
+          port: ${{ secrets.REMOTE_SSH_PORT }} # 접속포트
+          script: |
+            cd /home/ubuntu/WhiteMouseProjects
+            git pull origin main
+            cd /home/ubuntu/WhiteMouseProjects/client
+            npm install
+            npm run build
+            cd /home/ubuntu/WhiteMouseProjects/server
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm install 
+            pm2 restart main
